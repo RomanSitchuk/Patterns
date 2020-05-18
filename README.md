@@ -1,16 +1,21 @@
+## State, Adapter and Proxy patterns implementation
+
+Refer to the commits history in order to get a clearer view, because the changes were made step by step (emulating some real scenario). 
+ReportStateDemoTest class is emulating client requests. 
+
 ## Set Up the Salesforce DX Project
 
 Our first goal is to set up a developer project which we'll use to modify our application. It starts by cloning the repository. Use the command ...
 
-    git clone https://github.com/forcedotcom/sfdx-simple.git
+    git clone https://github.com/RomanSitchuk/Patterns.git
 
 … or ...
 
-    git clone git@github.com:forcedotcom/sfdx-simple.git
+    git clone git@github.com:forcedotcom/Patterns.git
 
 … to clone the repository. Then, open the directory.
 
-    cd sfdx-simple
+    cd Patterns
     
 ## Steps
 
