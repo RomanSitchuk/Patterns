@@ -12,6 +12,9 @@ class ReportStateDemoTest {
         stateContext.setState(new ReportAdapter(new RemoteReportImpl()));
         stateContext.setReportName('RemoteReport');
         stateContext.runReport();
+
+        IReportContext stateContextProxy = new ReportContextProxy(VFReport.getInstance(), 'VR_TicketReport');
+        stateContextProxy.runReport();
     }
     
 }

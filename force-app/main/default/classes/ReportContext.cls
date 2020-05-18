@@ -1,4 +1,4 @@
-public with sharing class ReportContext {
+public with sharing class ReportContext implements IReportContext{
     ReportState currentState;
     String reportName;
     public ReportContext(ReportState state, String reportName) {
