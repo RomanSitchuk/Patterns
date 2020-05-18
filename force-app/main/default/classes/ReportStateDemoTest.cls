@@ -8,6 +8,10 @@ class ReportStateDemoTest {
         stateContext.setState(StandardReport.getInstance());
         stateContext.setReportName('VR_Complaint_Details');
         stateContext.runReport();
+
+        stateContext.setState(new ReportAdapter(new RemoteReportImpl()));
+        stateContext.setReportName('RemoteReport');
+        stateContext.runReport();
     }
     
 }
