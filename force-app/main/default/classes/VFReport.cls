@@ -1,5 +1,5 @@
 public with sharing class VFReport implements ReportState {
-    private static VFReport instance;
+    private static final VFReport instance = new VFReport();
     
     private VFReport() {
     }
@@ -10,9 +10,6 @@ public with sharing class VFReport implements ReportState {
     }
 
     public static VFReport getInstance() {
-        if (instance == null) {
-            instance = new VFReport();
-        } 
         return instance;
     }
 }

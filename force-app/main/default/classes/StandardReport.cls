@@ -1,5 +1,5 @@
 public with sharing class StandardReport implements ReportState{
-    private static StandardReport instance;
+    private static final StandardReport instance = new StandardReport();
 
     private StandardReport() {
     }
@@ -10,9 +10,6 @@ public with sharing class StandardReport implements ReportState{
     }
 
     public static StandardReport getInstance() {
-        if (instance == null) {
-            instance = new StandardReport();
-        } 
         return instance;
     }
 }
