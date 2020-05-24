@@ -2,19 +2,20 @@
 class ReportStateDemoTest {
     @isTest
     static void testReportState() {
-        ReportContext stateContext = new ReportContext(VFReport.getInstance(), 'VR_TicketReport');
+        ReportContext stateContext = new ReportContext('PDF_Report');
         stateContext.runReport();
 
-        stateContext.setState(StandardReport.getInstance());
-        stateContext.setReportName('VR_Complaint_Details');
+        stateContext.setReport('SFDCStandard_Report');
         stateContext.runReport();
 
-        stateContext.setState(new ReportAdapter(new RemoteReportImpl()));
-        stateContext.setReportName('RemoteReport');
+        // Test default behavior
+        stateContext.setReport('Not_Configured_Report');
         stateContext.runReport();
 
-        IReportContext stateContextProxy = new ReportContextProxy(VFReport.getInstance(), 'VR_TicketReport');
+        stateContext.setReport('Remote_Report');
+        stateContext.runReport();
+
+        IReportContext stateContextProxy = new ReportContextProxy('PDF_Report');
         stateContextProxy.runReport();
-    }
-    
+    }  
 }

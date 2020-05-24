@@ -1,17 +1,16 @@
-public with sharing class ReportContextProxy implements IReportContext{
+public with sharing class ReportContextProxy implements IReportContext {
     ReportContext reportContext;
     ReportState state;
     String reportName;
 
-    public ReportContextProxy(ReportState state, String reportName) {
-        this.state = state;
+    public ReportContextProxy(String reportName) {
         this.reportName = reportName;
     }
 
     public void runReport() {
         if (isAccesible()) {
             if (reportContext == null) {
-                this.reportContext = new ReportContext(this.state, this.reportName);
+                this.reportContext = new ReportContext(this.reportName);
             }
             this.reportContext.runReport();
         } else { 

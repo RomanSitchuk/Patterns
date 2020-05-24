@@ -1,8 +1,7 @@
 public with sharing class ReportAdapter implements ReportState {
    
     RemoteReport remoteReport;
-    public ReportAdapter(RemoteReport remoteReport) 
-    { 
+    public ReportAdapter(RemoteReport remoteReport) { 
         this.remoteReport = remoteReport; 
     } 
 

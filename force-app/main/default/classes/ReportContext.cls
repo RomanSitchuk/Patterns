@@ -1,8 +1,10 @@
 public with sharing class ReportContext implements IReportContext{
     ReportState currentState;
     String reportName;
-    public ReportContext(ReportState state, String reportName) {
-        this.currentState = state;
+    Map<String, ReportState> reportStates = new Map<String, ReportState>();
+    public ReportContext(String reportName) {
+        initStates();
+        this.currentState = getStateByNameOrDefault(reportName); 
         this.reportName = reportName;
     }
 
@@ -10,24 +12,23 @@ public with sharing class ReportContext implements IReportContext{
         this.currentState.runReport(this.reportName);
     }
 
-    public void setState(ReportState state)  
-    { 
-        this.currentState = state; 
+    public void setReport(String reportName) {
+        this.reportName = reportName;
+        this.currentState = getStateByNameOrDefault(reportName);
     } 
 
-    public ReportState getState()  
-    { 
-        return this.currentState; 
+    public String getReportName() { 
+        return this.reportName; 
     }
 
-    public void setReportName(String reportName)  
-    { 
-        this.reportName = reportName; 
+    void initStates() {
+        reportStates.put('PDF_Report', VFReport.getInstance());
+        reportStates.put('SFDCStandard_Report', StandardReport.getInstance());
+        reportStates.put('Remote_Report', new ReportAdapter(new RemoteReportImpl()));
     } 
 
-    public String getReportName()  
-    { 
-        return this.reportName; 
+    ReportState getStateByNameOrDefault(String reportName) {
+        return this.reportStates.get(reportName) != null ? this.reportStates.get(reportName) : VFReport.getInstance();
     }
 }
 
