@@ -1,6 +1,5 @@
 public with sharing class ReportContextProxy implements IReportContext {
     ReportContext reportContext;
-    ReportState state;
     String reportName;
 
     public ReportContextProxy(String reportName) {

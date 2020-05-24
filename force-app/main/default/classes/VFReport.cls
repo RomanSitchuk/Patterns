@@ -1,4 +1,4 @@
-public with sharing class VFReport implements ReportState {
+public with sharing class VFReport implements IReportState {
     private static final VFReport instance = new VFReport();
     
     private VFReport() {

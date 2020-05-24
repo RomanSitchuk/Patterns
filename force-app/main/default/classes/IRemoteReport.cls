@@ -1,3 +1,3 @@
-public interface RemoteReport {
+public interface IRemoteReport {
     void downloadReport(String reportName);
 }

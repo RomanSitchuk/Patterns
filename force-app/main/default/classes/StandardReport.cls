@@ -1,4 +1,4 @@
-public with sharing class StandardReport implements ReportState{
+public with sharing class StandardReport implements IReportState{
     private static final StandardReport instance = new StandardReport();
 
     private StandardReport() {

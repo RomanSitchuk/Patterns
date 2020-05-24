@@ -1,3 +1,3 @@
-public interface ReportState {
+public interface IReportState {
     void runReport(String reportName);
 }

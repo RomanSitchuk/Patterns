@@ -1,7 +1,7 @@
 public with sharing class ReportContext implements IReportContext{
-    ReportState currentState;
+    IReportState currentState;
     String reportName;
-    Map<String, ReportState> reportStates = new Map<String, ReportState>();
+    Map<String, IReportState> reportStates = new Map<String, IReportState>();
     public ReportContext(String reportName) {
         initStates();
         this.currentState = getStateByNameOrDefault(reportName); 
@@ -27,7 +27,7 @@ public with sharing class ReportContext implements IReportContext{
         reportStates.put('Remote_Report', new ReportAdapter(new RemoteReportImpl()));
     } 
 
-    ReportState getStateByNameOrDefault(String reportName) {
+    IReportState getStateByNameOrDefault(String reportName) {
         return this.reportStates.get(reportName) != null ? this.reportStates.get(reportName) : VFReport.getInstance();
     }
 }

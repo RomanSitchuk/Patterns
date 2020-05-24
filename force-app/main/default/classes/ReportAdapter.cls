@@ -1,7 +1,7 @@
-public with sharing class ReportAdapter implements ReportState {
+public with sharing class ReportAdapter implements IReportState {
    
-    RemoteReport remoteReport;
-    public ReportAdapter(RemoteReport remoteReport) { 
+    IRemoteReport remoteReport;
+    public ReportAdapter(IRemoteReport remoteReport) { 
         this.remoteReport = remoteReport; 
     } 
 
